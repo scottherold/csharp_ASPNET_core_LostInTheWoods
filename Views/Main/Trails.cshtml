@@ -1,0 +1,80 @@
+@model Trail
+@{
+    double lat= (double)@Model.Latitude;
+    double lng = (double)@Model.Longitude;
+}  
+<!-- Insert Model Here -->
+<div class="row justify-content-center">
+    <div class="col-lg-10 border border-white rounded justify-content-center m-4 bg-light">
+        <div class="row justify-content-center m-3">
+            <h1 class="text-center">@Model.Name</h1>
+        </div>
+        <div class="row justify-content-center m-3">
+            <div class="col-5">
+                <div class="row m-3">
+                    <h4>Description</h4>
+                    <p class="ml-5">@Model.Description</p>
+                </div>
+                <div class="row m-3">
+                    <h4>Trail Length</h4>
+                </div>
+                <div class="row m-3">
+                    <h6 class="ml-5">@Model.Length Miles</h6>
+                </div>
+                <div class="row m-3">
+                    <h4>Elevation Change</h4>
+                </div>
+                <div class="row m-3">
+                    <h6 class="ml-5">@Model.Elevation Feet</h6>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="row m-1">
+                    <div id="map" style="width: 120%; height: 400px;" class="mb-3">
+                         <!-- Working on adding Google Maps API -->
+                         <script>
+                            // Initialize and add the map
+                            function initMap() {
+                            var pos = {lat: @lat, lng: @lng};
+                            var map = new google.maps.Map(
+                                document.getElementById('map'), {zoom: 8, center: pos});
+
+                            var marker = new google.maps.Marker({position: pos, map: map});
+                            }
+                            </script>
+                        <script async defer
+                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCDIK0lQGNWrwd9dLatF89vIlL_5WG3yQ&callback=initMap">
+                        </script>
+                    </div>
+                    <!-- <img src="~/images/map.jpg" alt="Map of Trail" style="width: 120%; height: 120%" class="mb-3"> -->
+                </div>
+                <div class="row m-1">
+                    @if (Model.Longitude > 0)
+                    {
+                        <p>Longitude - @Model.Longitude &#176 W</p>
+                    }
+                    else
+                    {
+                        <p>Longitude - @Model.Longitude &#176 E</p>
+                    }
+                </div>
+                <div class="row m-1">
+                    @if (Model.Latitude > 0)
+                    {
+                        <p>Latitude - @Model.Latitude &#176 N</p>
+                    }
+                    else
+                    {
+                        <p>Latitude - @Model.Latitude &#176 S</p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="form-row justify-content-end mb-2">
+            <div class="col-lg-5 text-center">
+                <a href="/NewTrail" class="btn btn-success pl-4 pr-4 mb-2">Add a new Trail</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

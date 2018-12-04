@@ -1,0 +1,65 @@
+@model Trail
+<!-- Insert Model Here -->
+<div class="row justify-content-center">
+    <div class="col-lg-10 border border-white rounded justify-content-center m-4 bg-light">
+        <form class="m-3" asp-action="Create" asp-controller="Main" method="POST">
+            <div class="form-row justify-content-center m-3">
+                <h1 class="text-center">Add a New Trail!</h1>
+            </div>
+            <div class="form-row">
+                <div class="col-lg-4 ml-5">
+                    <label asp-for="Name"><h5>Trail Name:</h5></label>
+                </div>
+                <div class="col-lg-3 justify-content-start">
+                    <input type="text" class="form-control" asp-for="Name">
+                    <p><span asp-validation-for="Name" class="text-danger"></span></p>
+                </div>
+            </div>
+            <div class="form-row mb-4">
+                <div class="col-lg-4 ml-5">
+                    <label asp-for="Description"><h5>Description:</h5></label>
+                </div>
+                <div class="col-lg-6 justify-content-start">
+                    <textarea class="form-control" asp-for="Description" rows="5"></textarea>
+                    <p><span asp-validation-for="Description" class="text-danger"></span></p>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-lg-4 ml-5">
+                    <label asp-for="Length"><h5>Trail Length:</h5></label>
+                </div>
+                <div class="col-lg-3 justify-content-start">
+                    <input type="text" class="form-control" asp-for="Length">
+                    <p><span asp-validation-for="Length" class="text-danger"></span></p>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-lg-4 ml-5">
+                    <label asp-for="Elevation"><h5>Elevation Change:</h5></label>
+                </div>
+                <div class="col-lg-3 justify-content-start">
+                    <input type="text" class="form-control" asp-for="Elevation">
+                    <p><span asp-validation-for="Elevation" class="text-danger"></span></p>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-lg-4 ml-5">
+                    <label asp-for="Longitude"><h5>Longitude & Latitude:</h5></label>
+                </div>
+                <div class="col-lg-3 justify-content-start">
+                    <input type="text" class="form-control" asp-for="Longitude">
+                    <p><span asp-validation-for="Longitude" class="text-danger"></span></p>
+                </div>
+                <div class="col-lg-3 justify-content-start">
+                    <input type="text" class="form-control" asp-for="Latitude">
+                    <p><span asp-validation-for="Latitude" class="text-danger"></span></p>
+                </div>
+            </div>
+            <div class="form-row justify-content-end mb-2">
+                <div class="col-lg-5 text-center">
+                    <button type="submit" class="btn btn-success pl-4 pr-4 mt-2 mb-2">Create Record</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
